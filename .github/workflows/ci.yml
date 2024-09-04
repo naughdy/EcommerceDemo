@@ -1,0 +1,42 @@
+# .github/workflows/ci.yml
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: yarn install
+
+      # Step 4: Run linting
+      - name: Run ESLint
+        run: yarn lint
+
+      # Step 5: Run tests
+      - name: Run Jest tests
+        run: yarn test
+
+      # (Optional) Step 6: Build the project
+      # - name: Build the project
+      #   run: yarn build
