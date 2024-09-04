@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
+import { View, Text, ActivityIndicator, Image } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useGetProductByIdQuery } from '../services/products';
 import { RouteProp } from '@react-navigation/native';
